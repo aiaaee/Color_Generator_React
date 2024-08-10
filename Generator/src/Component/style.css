@@ -25,12 +25,12 @@ body{
     width: 400px;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 950px;
+    height: 1050px;
     position: fixed;
 }
 .right_section{
     background-color: rgb(156, 172, 177);
-    height: 1200px;
+    height: 1500px;
 }
 .adv{
     justify-content: space-between;
