@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
+import { CloseButton } from 'react-bootstrap'
 function App(){
+    const [Horizontal , setHorizontal] = useState('100')
+    const [Vertical , setVertical] = useState('100')
+    const [Blur , setBlur] = useState('5')
+    const [Spread , setSpread] = useState('10')
+    const [Color , setColor] = useState('#555')
     return(
         <>
             <div className='wrapper '>
@@ -16,7 +22,9 @@ function App(){
                             <input
                             max={200}
                             min={-200}
-                             className='form-range  w-100' type='range' /> 
+                            value={Horizontal}
+                            onChange={(e) => setHorizontal(e.target.value)}
+                            className='form-range  w-100' type='range' /> 
                         </div>
                         
                         <div className='form-control mt-5  '>
@@ -25,6 +33,8 @@ function App(){
                             <input
                             max={200}
                             min={-200}
+                            value={Vertical}
+                            onChange={(e) => setVertical(e.target.value)}
                              className='form-range  w-100' type='range' /> 
                         </div>
                         
@@ -36,6 +46,8 @@ function App(){
                             <input
                             max={20}
                             min={0}
+                            value={Blur}
+                            onChange={(e) => setBlur(e.target.value)}
                             className='form-range  w-100' type='range' /> 
                         </div>
                         
@@ -45,12 +57,18 @@ function App(){
                             <input
                             min={-100}
                             max={50}
+                            value={Spread}
+                            onChange={(e) => setSpread(e.target.value)}
                             className='form-range  w-100 ' type='range' /> 
                         </div>
                         
                         <div className='form-control mt-5'>
                             <label className='fs-4 ps-3 mb-2'>Color:</label>
-                            <input className='form-control ' style={{height:'300px'}} type='color' /> 
+                            <input className='form-control ' 
+                            style={{height:'300px'}} 
+                            type='color'
+                            onChange={(e) => setColor(e.target.value)}
+                            /> 
                         </div>
                         
                         <div className='form-control height-adv mt-5'>
@@ -64,15 +82,15 @@ function App(){
                 
                 
                 <div className='left_section  '>
-                    <div className='indication bg-primary'>
+                    <div className='indication bg-primary' style={{boxShadow:`${Horizontal}px ${Vertical}px ${Blur}px ${Spread}px ${Color}`}}>
                     
                     </div>
                     <div className='Copy_generator d-flex'>
                         <div className='color_shadow border border-1 border-dark p-3 bg-dark rounded ms-3 circle text-white'>
-                            Box Shadow : 10px 11px 12px 13px #0312
+                            Box Shadow : {Horizontal}px {Vertical}px {Blur}px {Spread}px {Color}
                         </div>
                         <div className='upload_photo   m-2'>
-                            <input type='file' className='form-control-file' /> 
+                            <input type='file' className='form-control-file' onChange={(e) => setUrl(e.target.value)}  accept='image/png , image/jpg'/> 
                         </div>
                     </div>
                 </div>
