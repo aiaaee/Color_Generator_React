@@ -1,4 +1,4 @@
-# Color Generator React
+# Color Generator With React
 In this project, I tried to create a color generator that can be easily used in CSS projects.
 
 Using Bootstrap and JSX, we divide the project into two parts and move the project forward
